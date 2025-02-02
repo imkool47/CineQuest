@@ -1,7 +1,8 @@
-body {
-  background-color: #121212;
-  color: white;
-  font-family: Arial, sans-serif;
+.App {
+  min-height: 100vh;
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px 10px;
 }
 
 .container {
@@ -67,4 +68,46 @@ h2 {
 .error-message {
   color: red;
   margin-top: 10px;
+}
+
+header {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  margin-bottom: 70px;
+  border-radius: 5px;
+  border-bottom: 1px solid var(--theme-border);
+  /* box-shadow: var(--box-shadow); */
+}
+
+/* header .logo {
+  display: flex;
+  align-items: center;
+} */
+
+header img {
+  /* removed .logo */
+  max-width: 40px;
+  cursor: pointer;
+}
+
+header span {
+  /* removed logo*/
+  font-size: 22px;
+  margin-left: 7px;
+  cursor: pointer;
+  color: #ffcc00;
+  text-align: center;
+}
+
+footer {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  padding: 20px;
+  height: 70px;
+  font-size: 18px;
+  border-top: 1px solid var(--theme-border);
 }
