@@ -109,5 +109,22 @@ footer {
   padding: 20px;
   height: 70px;
   font-size: 18px;
+  font-weight: 500;
   border-top: 1px solid var(--theme-border);
+}
+
+.pagination {
+  margin-top: 20px;
+}
+
+.pagination button {
+  margin: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.pagination .active {
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
 }
