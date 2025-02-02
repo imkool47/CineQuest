@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function RandomMovie({ randomMovie }) {
   return (
     <div className="random-movie">

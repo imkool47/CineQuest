@@ -5,7 +5,7 @@ import MovieList from "../components/MovieList";
 import TopMovies from "../components/TopMovies";
 import RandomMovie from "../components/RandomMovie";
 
-const API_KEY = "YOUR_TMDB_API_KEY";
+const API_KEY = "09343d287d3cf75b18d5740356398ac1";
 const API_URL = "https://api.themoviedb.org/3";
 
 export default function Home() {
