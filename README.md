@@ -17,6 +17,7 @@ CineQuest is a modern and user-friendly movie search web app that allows you to 
 - 🎭 **Axios** – Fetch movie data from the API.  
 - 💅 **CSS** – Styled for a sleek, modern look.  
 
+
 ## 📦 Installation  
 Clone the repository and install dependencies:  
 ```sh
@@ -24,6 +25,7 @@ git clone https://github.com/imkool47/CineQuest.git
 cd CineQuest
 npm install
 npm run dev
+```
 
 ## 🌟 Contributing
 Feel free to open issues and submit pull requests to improve CineQuest!
