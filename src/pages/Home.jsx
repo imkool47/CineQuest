@@ -79,11 +79,11 @@ export default function Home() {
         setQuery={setQuery}
         fetchMovies={() => fetchMovies(1)}
       />
-      {query && (
+      {/* {query && (
         <p>
           Showing results for: <strong>{query}</strong>
         </p>
-      )}
+      )} */}
       {notFound && (
         <p className="error-message">No movies found for "{query}"</p>
       )}
