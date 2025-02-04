@@ -15,6 +15,8 @@
 h1,
 h2 {
   color: #ffcc00;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .search-bar {
@@ -234,11 +236,43 @@ footer {
   margin: 20px 0;
 }
 
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
+.no-movies {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-p {
-  font-size: 1rem;
+.no-movies h3 {
+  font-size: 24px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.no-movies p {
+  font-size: 18px;
+  color: white;
+}
+
+.no-movies h3,
+.no-movies p {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.query-highlight {
+  color: red;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

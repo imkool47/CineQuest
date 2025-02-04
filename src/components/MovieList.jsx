@@ -17,7 +17,10 @@ export default function MovieList({ movies }) {
           ))}
         </div>
       ) : (
-        <p>No movies found . Try searching for something else!</p>
+        <div className="no-movies">
+          <h3>No movies found 😞</h3>
+          <p>Try searching for something else!</p>
+        </div>
       )}
     </div>
   );

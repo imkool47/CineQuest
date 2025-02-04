@@ -84,7 +84,7 @@ export default function Home() {
       )} */}
 
       {/* Render movies only if a search has been performed */}
-      {searchPerformed && <MovieList movies={movies} />}
+      {searchPerformed && <MovieList movies={movies} query={query} />}
 
       {/* Show pagination only after searching */}
       {searchPerformed && totalPages > 1 && (
