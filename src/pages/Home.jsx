@@ -17,7 +17,7 @@ export default function Home() {
   const [randomMovie, setRandomMovie] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [searchPerformed, setSearchPerformed] = useState(false); // New state to track search
+  const [searchPerformed, setSearchPerformed] = useState(false); // State to track search
 
   useEffect(() => {
     fetchTopMovies();
@@ -32,7 +32,7 @@ export default function Home() {
       setMovies(res.data.results);
       setTotalPages(res.data.total_pages);
       setNotFound(res.data.results.length === 0);
-      setSearchPerformed(true); // Show pagination only after searching
+      setSearchPerformed(true); // Update when a search is performed
     } catch (error) {
       console.error("Error fetching movies", error);
     }
@@ -79,17 +79,14 @@ export default function Home() {
         setQuery={setQuery}
         fetchMovies={() => fetchMovies(1)}
       />
-      {/* {query && (
-        <p>
-          Showing results for: <strong>{query}</strong>
-        </p>
-      )} */}
-      {notFound && (
+      {/* {notFound && (
         <p className="error-message">No movies found for "{query}"</p>
-      )}
-      <MovieList movies={movies} />
+      )} */}
 
-      {/* Only show pagination when a search has been performed */}
+      {/* Render movies only if a search has been performed */}
+      {searchPerformed && <MovieList movies={movies} />}
+
+      {/* Show pagination only after searching */}
       {searchPerformed && totalPages > 1 && (
         <Pagination
           currentPage={currentPage}
