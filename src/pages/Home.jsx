@@ -19,19 +19,25 @@ export default function Home() {
   const [totalPages, setTotalPages] = useState(1);
   const [searchPerformed, setSearchPerformed] = useState(false); // State to track search
 
+  const resultsPerPage = 6; // Show 6 results per page
+
   useEffect(() => {
     fetchTopMovies();
   }, []);
 
-  const fetchMovies = async (page = 1) => {
+  const fetchMovies = async () => {
     if (!query) return;
     try {
       const res = await axios.get(`${API_URL}/search/movie`, {
-        params: { api_key: API_KEY, query, page },
+        params: { api_key: API_KEY, query },
       });
+
       setMovies(res.data.results);
-      setTotalPages(res.data.total_pages);
       setNotFound(res.data.results.length === 0);
+
+      // Calculate total pages based on resultsPerPage
+      setTotalPages(Math.ceil(res.data.results.length / resultsPerPage));
+      setCurrentPage(1); // Reset to first page after a new search
       setSearchPerformed(true); // Update when a search is performed
     } catch (error) {
       console.error("Error fetching movies", error);
@@ -67,24 +73,24 @@ export default function Home() {
   };
 
   const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
-    fetchMovies(newPage);
+    if (newPage >= 1 && newPage <= totalPages) {
+      setCurrentPage(newPage); // Update the current page
+    }
   };
+
+  // Get the movies to display for the current page
+  const paginatedMovies = movies.slice(
+    (currentPage - 1) * resultsPerPage,
+    currentPage * resultsPerPage
+  );
 
   return (
     <div className="container">
       <h1>CineQuest 🎬</h1>
-      <SearchBar
-        query={query}
-        setQuery={setQuery}
-        fetchMovies={() => fetchMovies(1)}
-      />
-      {/* {notFound && (
-        <p className="error-message">No movies found for "{query}"</p>
-      )} */}
+      <SearchBar query={query} setQuery={setQuery} fetchMovies={fetchMovies} />
 
       {/* Render movies only if a search has been performed */}
-      {searchPerformed && <MovieList movies={movies} query={query} />}
+      {searchPerformed && <MovieList movies={paginatedMovies} query={query} />}
 
       {/* Show pagination only after searching */}
       {searchPerformed && totalPages > 1 && (
