@@ -19,7 +19,7 @@ export default function Home() {
   const [totalPages, setTotalPages] = useState(1);
   const [searchPerformed, setSearchPerformed] = useState(false); // State to track search
 
-  const resultsPerPage = 6; // Show 6 results per page
+  const resultsPerPage = 8; // Show 8 results per page
 
   useEffect(() => {
     fetchTopMovies();

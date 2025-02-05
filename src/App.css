@@ -254,6 +254,7 @@ footer {
     minmax(150px, 1fr)
   ); /* Responsive grid */
   gap: 20px; /* Spacing between items */
+  grid-template-columns: repeat(4, 1fr);
   margin: 20px 0;
 }
 
