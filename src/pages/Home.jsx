@@ -49,7 +49,7 @@ export default function Home() {
       const res = await axios.get(`${API_URL}/movie/top_rated`, {
         params: { api_key: API_KEY },
       });
-      const topMoviesList = res.data.results.slice(0, 5);
+      const topMoviesList = res.data.results.slice(0, 8);
       setTopMovies(topMoviesList);
 
       // Check Local Storage for Movie of the Day
