@@ -2,8 +2,8 @@ import React from "react";
 
 export default function TopMovies({ topMovies }) {
   return (
-    <div>
-      <h2 className="section-header">🔥 Top Rated Movies</h2>
+    <div className="section-header">
+      <h2>🔥 Top Rated Movies</h2>
       <div className="top-movies">
         {topMovies.map((movie) => (
           <div key={movie.id} className="movie-card">

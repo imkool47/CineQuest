@@ -5,9 +5,10 @@ import MovieList from "../components/MovieList";
 import TopMovies from "../components/TopMovies";
 import RandomMovie from "../components/RandomMovie";
 import Pagination from "../components/Pagination";
+import TrendingMovies from "../components/TrendingMovies"; // Import TrendingMovies component
 
-const API_KEY = "09343d287d3cf75b18d5740356398ac1";
-const API_URL = "https://api.themoviedb.org/3";
+const API_KEY = import.meta.env.VITE_API_KEY;
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
@@ -88,10 +89,8 @@ export default function Home() {
     <div className="container">
       <h1>CineQuest 🎬</h1>
       <SearchBar query={query} setQuery={setQuery} fetchMovies={fetchMovies} />
-
       {/* Render movies only if a search has been performed */}
       {searchPerformed && <MovieList movies={paginatedMovies} query={query} />}
-
       {/* Show pagination only after searching */}
       {searchPerformed && totalPages > 1 && (
         <Pagination
@@ -100,9 +99,9 @@ export default function Home() {
           onPageChange={handlePageChange}
         />
       )}
-
-      <TopMovies topMovies={topMovies} />
       <RandomMovie randomMovie={randomMovie} />
+      <TrendingMovies />
+      <TopMovies topMovies={topMovies} />
     </div>
   );
 }
