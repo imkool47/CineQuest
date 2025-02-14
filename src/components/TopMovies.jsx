@@ -2,9 +2,9 @@ import React from "react";
 
 export default function TopMovies({ topMovies }) {
   return (
-    <div className="section-header">
+    <div className="top-movies-section">
       <h2>🔥 Top Rated Movies</h2>
-      <div className="top-movies">
+      <div className="top-movies-grid">
         {topMovies.map((movie) => (
           <div key={movie.id} className="movie-card">
             <img

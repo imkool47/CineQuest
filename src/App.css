@@ -60,15 +60,26 @@ h2 {
   color: #ffffff;
 }
 
-.top-movies {
+/* Style for Top Movies Section */
+.top-movies-section {
+  margin-top: 40px;
+  padding: 20px;
+  background: #121212; /* Matches Trending Movies background */
+  border-radius: 8px;
+}
+
+.top-movies-section h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.top-movies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   justify-content: center;
-  padding: 20px;
-  /* background: #121212;
-  border-radius: 8px; */
 }
 
 .movie-card {
